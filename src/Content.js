@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Table from './Table';
 
-class Content extends Component {
-  render() {
-    return (
-      <div>
-        Hi from Content
-      </div>
-    );
-  }
-}
+const Content = () => {
+  return (
+    <div>
+      <Table />
+    </div>
+  );
+};
 
 export default Content;
