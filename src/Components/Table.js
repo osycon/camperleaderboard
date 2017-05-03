@@ -17,7 +17,22 @@ class Table extends Component {
     return (
       <div>
         <table>
-          <row>Hey</row>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Camper Name</th>
+              <th>Points in past 30 days</th>
+              <th>All time points</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Hey</td>
+              <td>Hey</td>
+              <td>Hey</td>
+              <td>Hey</td>
+            </tr>
+          </tbody>
         </table>
       </div>
     );
