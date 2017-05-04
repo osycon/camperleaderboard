@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import api from '../utils/api';
 
 class Table extends Component {
@@ -8,12 +7,21 @@ class Table extends Component {
     this.state = {
       users: null
     };
+    // this.handle30Days = this.handle30Days.bind(this);
   }
   componentDidMount() {
-    api.getAllTime().then(users => console.log(users));
-    api.getLast30Days().then(users => console.log(users));
+    api.getAllTime().then(users => users);
+    api.getLast30Days().then(users => {
+      this.setState({
+        users: users.data
+      });
+    });
   }
+  // handle30Days() {
+  //   //
+  // }
   render() {
+    console.table(this.state.users);
     return (
       <div>
         <table>
@@ -27,7 +35,7 @@ class Table extends Component {
           </thead>
           <tbody>
             <tr>
-              <td>Hey</td>
+              <td>hey</td>
               <td>Hey</td>
               <td>Hey</td>
               <td>Hey</td>
