@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import api from '../utils/api';
+import TableRow from './TableRow';
 
 class Table extends Component {
   constructor(props) {
@@ -17,11 +18,11 @@ class Table extends Component {
       });
     });
   }
-  // handle30Days() {
-  //   //
+  // handleRecent(user) {
+  //   console.log(user);
   // }
   render() {
-    console.table(this.state.users);
+    // console.log(this.state.users);
     return (
       <div>
         <table>
@@ -40,6 +41,7 @@ class Table extends Component {
               <td>Hey</td>
               <td>Hey</td>
             </tr>
+            <TableRow users={this.state.users} />
           </tbody>
         </table>
       </div>
