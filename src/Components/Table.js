@@ -44,9 +44,8 @@ class Table extends Component {
           </thead>
 
           {!this.state.users
-            ? <p>Loading...</p>
+            ? <tbody><tr><td>Loading...</td></tr></tbody>
             : <TableRow users={this.state.users} />}
-          {JSON.stringify(this.state.users, null, 2)}
         </table>
       </div>
     );
