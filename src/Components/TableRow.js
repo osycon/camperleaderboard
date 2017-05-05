@@ -19,7 +19,7 @@ const UserRow = props => {
 };
 
 UserRow.propTypes = {
-  users: PropTypes.arrayOf().isRequired
+  users: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
 UserRow.defaultProps = {
