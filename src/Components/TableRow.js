@@ -3,17 +3,26 @@ import PropTypes from 'prop-types';
 
 const UserRow = props => {
   return (
-    <tr>
-      {this.props.children}
-    </tr>
+    <tbody>
+      {props.users.map((user, index) => {
+        return (
+          <tr key={user.username}>
+            <td>{index}</td>
+            <td>{user.username}</td>
+            <td>{user.recent}</td>
+            <td>{user.alltime}</td>
+          </tr>
+        );
+      })}
+    </tbody>
   );
 };
 
-// UserRow.propTypes = {
-//   users: PropTypes.arrayOf()
-// };
+UserRow.propTypes = {
+  users: PropTypes.arrayOf().isRequired
+};
 
-// UserRow.defaultProps = {
-//   users: `Nothing came`
-// };
+UserRow.defaultProps = {
+  users: `Nothing came`
+};
 export default UserRow;

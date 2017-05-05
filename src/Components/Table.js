@@ -8,21 +8,29 @@ class Table extends Component {
     this.state = {
       users: null
     };
-    // this.handle30Days = this.handle30Days.bind(this);
+    this.getRecent = this.getRecent.bind(this);
+    this.getAllTimeHigh = this.getAllTimeHigh.bind(this);
   }
   componentDidMount() {
-    api.getAllTime().then(users => users);
+    this.getRecent();
+  }
+  getRecent() {
     api.getLast30Days().then(users => {
       this.setState({
-        users: users.data
+        users
       });
+      console.log(this.state.users);
     });
   }
-  // handleRecent(user) {
-  //   console.log(user);
-  // }
+  getAllTimeHigh() {
+    api.getAllTime().then(users => {
+      this.setState({
+        users
+      });
+      console.log(this.state.users);
+    });
+  }
   render() {
-    // console.log(this.state.users);
     return (
       <div>
         <table>
@@ -34,15 +42,11 @@ class Table extends Component {
               <th>All time points</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>hey</td>
-              <td>Hey</td>
-              <td>Hey</td>
-              <td>Hey</td>
-            </tr>
-            <TableRow users={this.state.users} />
-          </tbody>
+
+          {!this.state.users
+            ? <p>Loading...</p>
+            : <TableRow users={this.state.users} />}
+          {JSON.stringify(this.state.users, null, 2)}
         </table>
       </div>
     );

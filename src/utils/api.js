@@ -8,7 +8,7 @@ module.exports = {
 
     return axios
       .get(last30DaysURL)
-      .then(response => response)
+      .then(response => response.data)
       .catch(err => console.error(err));
   },
   getAllTime: () => {
@@ -17,7 +17,7 @@ module.exports = {
     );
     return axios
       .get(allTimeURL)
-      .then(response => response)
+      .then(response => response.data)
       .catch(err => console.error(err));
   }
 };
