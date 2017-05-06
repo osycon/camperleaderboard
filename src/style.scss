@@ -1,5 +1,11 @@
+$primary-green: #a5d6a7;
+$primary-green-bright: #d7ffd9;
+$primary-green-dark: #75a478;
+$primary-font-color: #000000;
+$secondary-turquoise: #00766c;
+$secondary-font-color: #ffffff;
 body {
-  background: salmon;
+  background: $primary-green-bright;
   font-family: 'Roboto', sans-serif;
   .app {
     width: 90%;
@@ -9,22 +15,24 @@ body {
     align-items: center;  
   }
   .table-title {
-    background: green;
+    background: $secondary-turquoise;
     text-align: center;
     font-size: 1.7em;
     font-family: 'Varela Round', sans-serif;
+    color: $secondary-font-color;
   }
   tbody tr:nth-child(even) {
-    background: midnightblue;
+    background: $primary-green;
   }
   tbody tr:nth-child(odd) {
-    background: yellow;
+    background: $primary-green-dark;
   }
   .user-img {
     display: flex;
     align-items: center;
     img {
       width: 35px;
+      border-radius: 50%;
     }
   }
 }
