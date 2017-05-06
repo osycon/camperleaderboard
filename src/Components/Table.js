@@ -19,7 +19,6 @@ class Table extends Component {
       this.setState({
         users
       });
-      console.log(this.state.users);
     });
   }
   getAllTimeHigh() {
@@ -27,7 +26,6 @@ class Table extends Component {
       this.setState({
         users
       });
-      console.log(this.state.users);
     });
   }
   render() {
@@ -38,8 +36,14 @@ class Table extends Component {
             <tr>
               <th>#</th>
               <th>Camper Name</th>
-              <th>Points in past 30 days</th>
-              <th>All time points</th>
+              <th>
+                <button onClick={this.getRecent}>
+                  Points in past 30 days
+                </button>
+              </th>
+              <th>
+                <button onClick={this.getAllTimeHigh}>All time points</button>
+              </th>
             </tr>
           </thead>
 

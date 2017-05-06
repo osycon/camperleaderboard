@@ -7,7 +7,7 @@ const UserRow = props => {
       {props.users.map((user, index) => {
         return (
           <tr key={user.username}>
-            <td>{index}</td>
+            <td>{index + 1}</td>
             <td>{user.username}</td>
             <td>{user.recent}</td>
             <td>{user.alltime}</td>
