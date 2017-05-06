@@ -1,5 +1,6 @@
 body {
   background: salmon;
+  font-family: 'Roboto', sans-serif;
   .app {
     width: 90%;
     margin: 1.5rem auto;
@@ -11,6 +12,7 @@ body {
     background: green;
     text-align: center;
     font-size: 1.7em;
+    font-family: 'Varela Round', sans-serif;
   }
   tbody tr:nth-child(even) {
     background: midnightblue;
