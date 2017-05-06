@@ -6,11 +6,16 @@ const UserRow = props => {
     <tbody>
       {props.users.map((user, index) => {
         return (
-          <tr key={user.username}>
-            <td>{index + 1}</td>
-            <td>{user.username}</td>
-            <td>{user.recent}</td>
-            <td>{user.alltime}</td>
+          <tr key={user.username} className="user">
+            <td className="user-rank">{index + 1}</td>
+            <td className="user-img">
+              <figure>
+                <img src={user.img} alt={user.username} />
+              </figure>
+              <span className="user-name">{user.username}</span>
+            </td>
+            <td className="user-recent">{user.recent}</td>
+            <td className="user-alltime">{user.alltime}</td>
           </tr>
         );
       })}
