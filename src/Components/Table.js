@@ -32,6 +32,7 @@ class Table extends Component {
     return (
       <div>
         <table>
+          <caption className="table-title">Leaderboard</caption>
           <thead>
             <tr>
               <th>#</th>
