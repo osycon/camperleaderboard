@@ -26,6 +26,9 @@ body {
   }
   table {
     max-width: 80vw;
+    @media (min-width: 600px) {
+      min-width: 60vw;
+    }
     thead th {
       padding: 0;
     }
@@ -69,8 +72,18 @@ body {
     color: $highlight-font-color;
   }
   footer {
+    width: 95%;
+    max-width: 60vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    a {
+      text-decoration: none;
+      color: $primary-font-color;
+    }
     .github-icon {
       fill: $primary-green-dark;
+      margin-left: 0.5em;
     }
   }
 }
