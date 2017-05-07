@@ -7,7 +7,7 @@ const Footer = () => {
         <p className="madeby">Made by Fred Hawk</p>
         <a
           className="githublink"
-          href="https://somelinke.se"
+          href="https://osycon.github.io/camperleaderboard/"
           target="_blank"
           rel="noopener noreferrer"
         >
