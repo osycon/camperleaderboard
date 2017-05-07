@@ -38,7 +38,7 @@ class Table extends Component {
           <caption className="table-title">Leaderboard</caption>
           <thead>
             <tr>
-              <th>#</th>
+              <th>Rank</th>
               <th>Camper Name</th>
               <th>
                 <button
