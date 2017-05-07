@@ -68,4 +68,9 @@ body {
   .active {
     color: $highlight-font-color;
   }
+  footer {
+    .github-icon {
+      fill: $primary-green-dark;
+    }
+  }
 }
