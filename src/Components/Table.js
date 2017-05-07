@@ -30,7 +30,7 @@ class Table extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="wrap-table">
         <table>
           <caption className="table-title">Leaderboard</caption>
           <thead>
@@ -39,11 +39,11 @@ class Table extends Component {
               <th>Camper Name</th>
               <th>
                 <button onClick={this.getRecent}>
-                  Points in past 30 days
+                  Last 30 days
                 </button>
               </th>
               <th>
-                <button onClick={this.getAllTimeHigh}>All time points</button>
+                <button onClick={this.getAllTimeHigh}>All time</button>
               </th>
             </tr>
           </thead>
