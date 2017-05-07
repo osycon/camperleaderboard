@@ -6,7 +6,8 @@ class Table extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      users: null
+      users: null,
+      selectedUsers: null
     };
     this.getRecent = this.getRecent.bind(this);
     this.getAllTimeHigh = this.getAllTimeHigh.bind(this);
@@ -17,14 +18,16 @@ class Table extends Component {
   getRecent() {
     api.getLast30Days().then(users => {
       this.setState({
-        users
+        users,
+        selectedUsers: `recent`
       });
     });
   }
   getAllTimeHigh() {
     api.getAllTime().then(users => {
       this.setState({
-        users
+        users,
+        selectedUsers: `alltime`
       });
     });
   }
@@ -38,12 +41,20 @@ class Table extends Component {
               <th>#</th>
               <th>Camper Name</th>
               <th>
-                <button onClick={this.getRecent}>
+                <button
+                  className={`recent ${this.state.selectedUsers === `recent` ? `active` : ``}`}
+                  onClick={this.getRecent}
+                >
                   Last 30 days
                 </button>
               </th>
               <th>
-                <button onClick={this.getAllTimeHigh}>All time</button>
+                <button
+                  className={`alltime ${this.state.selectedUsers === `alltime` ? `active` : ``}`}
+                  onClick={this.getAllTimeHigh}
+                >
+                  All time
+                </button>
               </th>
             </tr>
           </thead>

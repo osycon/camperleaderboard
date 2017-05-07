@@ -31,6 +31,11 @@ body {
     td {
       text-align: center;
     }
+    th button {
+      background: none;
+      border: none;
+      font-weight: bold;
+    }
   }
   .table-title {
     background: $secondary-turquoise;
@@ -57,5 +62,8 @@ body {
       padding: 0;
       margin: 0;
     }
+  }
+  .active {
+    color: red;
   }
 }
