@@ -1,9 +1,9 @@
 const userReducer = function(state = {}, action) {
   switch (action.type) {
-    case `30days`:
+    case `RECENT`:
       // change state to return recent users
-      return state;
-    case `alltime`:
+      return {};
+    case `ALLTIME`:
       // return all time users
       return state;
     default:
