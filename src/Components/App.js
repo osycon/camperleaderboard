@@ -1,16 +1,19 @@
-import React from 'react';
-import Header from './Header';
-import Content from './Content';
-import Footer from './Footer';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as actionCreators from '../actions/actionCreators';
+import Main from './Main';
 
-const App = () => {
-  return (
-    <div className="app">
-      <Header />
-      <Content />
-      <Footer />
-    </div>
-  );
-};
+function mapStateToProps(state) {
+  return {
+    users: state.users,
+    selectedUsers: state.selectedUsers
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(actionCreators, dispatch);
+}
+
+const App = connect(mapStateToProps, mapDispatchToProps)(Main);
 
 export default App;
