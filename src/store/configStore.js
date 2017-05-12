@@ -17,6 +17,7 @@ const configureStore = () => {
   //   selectedUsers: null
   // }
   const store = createStore(rootReducer, initialState);
+  return store;
 };
 
 export default configureStore;
