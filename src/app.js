@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 // import redux
 import { Provider } from 'react-redux';
-import configStore from './store/configStore';
+import configureStore from './store/configStore';
 
 // importt css
 import css from './style.scss';
@@ -15,11 +15,11 @@ import App from './Components/App';
 //   user: userReducer,
 //   selectedUsers: selectedUsersReducer
 // });
-// const store = configStore();
+const store = configureStore();
 
 // store.subscribe(() => {});
 ReactDOM.render(
-  <Provider store={configStore}>
+  <Provider store={store}>
     <App />
   </Provider>,
   document.getElementById(`root`)
