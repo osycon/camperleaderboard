@@ -12,10 +12,6 @@ const configureStore = () => {
     };
   });
 
-  // const initialState = {
-  //   users: null,
-  //   selectedUsers: null
-  // }
   const store = createStore(rootReducer, initialState);
   return store;
 };
