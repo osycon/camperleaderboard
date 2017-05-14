@@ -1,8 +1,8 @@
-const userReducer = function(state = {}, action) {
+const userReducer = (state = {}, action) => {
   switch (action.type) {
     case `RECENT`:
       // change state to return recent users
-      return {};
+      return state;
     case `ALLTIME`:
       // return all time users
       return state;
