@@ -1,19 +1,9 @@
-import { createStore } from 'redux';
-import rootReducer from '../Reducers/index';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import rootReducer from '../reducers';
 
-// import data
-import api from '../utils/api';
-
-const configureStore = () => {
-  const initialState = api.getLast30Days().then(users => {
-    return {
-      users,
-      selectedUsers: `recent`
-    };
-  });
-
-  const store = createStore(rootReducer, initialState);
-  return store;
+const configureStore = initialState => {
+  return createStore(rootReducer, initialState, applyMiddleware(thunk));
 };
 
 export default configureStore;
