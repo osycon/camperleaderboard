@@ -21,16 +21,14 @@ export function selectedUsers(userGroup) {
   };
 }
 
-export function usersRecentFetchData(url) {
+export function usersFetchData(userGroup) {
   return dispatch => {
-    dispatch(selectedUsers(`recent`));
-    api.getLast30Days().then(users => dispatch(usersRecent(users)));
-  };
-}
-
-export function usersAllTimeFetchData(url) {
-  return dispatch => {
-    dispatch(selectedUsers(`alltime`));
-    api.getAllTime().then(users => dispatch(usersAllTime(users)));
+    if (userGroup === `recent`) {
+      dispatch(selectedUsers(`recent`));
+      api.getLast30Days().then(users => dispatch(usersRecent(users)));
+    } else {
+      dispatch(selectedUsers(`alltime`));
+      api.getAllTime().then(users => dispatch(usersAllTime(users)));
+    }
   };
 }
