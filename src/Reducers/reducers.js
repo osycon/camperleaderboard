@@ -12,7 +12,12 @@ const userReducer = (state = {}, action) => {
       });
     case `ALLTIME`:
       // return all time users
-      return state;
+      return api.getAllTime().then(users => {
+        return {
+          users,
+          selectedUsers: `alltime`
+        };
+      });
     default:
       return state;
   }
