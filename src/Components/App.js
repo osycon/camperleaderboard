@@ -1,19 +1,19 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as actionCreators from '../actions/actionCreators';
+import { usersFetchData } from '../actions/users';
 import Main from './Main';
 
-function mapStateToProps(state) {
+const mapStateToProps = state => {
   return {
     users: state.users,
     selectedUsers: state.selectedUsers
   };
-}
+};
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(actionCreators, dispatch);
-}
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchData: userGroup => dispatch(usersFetchData(userGroup))
+  };
+};
 
-const App = connect(mapStateToProps, mapDispatchToProps)(Main);
-
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(Main);

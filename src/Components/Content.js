@@ -4,7 +4,7 @@ import Table from './Table';
 const Content = () => {
   return (
     <div>
-      <Table />
+      <Table users={this.props.users} />
     </div>
   );
 };

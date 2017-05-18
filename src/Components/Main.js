@@ -7,7 +7,7 @@ const Main = () => {
   return (
     <div className="app">
       <Header />
-      <Content />
+      <Content users={this.props.users} />
       <Footer />
     </div>
   );

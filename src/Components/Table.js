@@ -5,32 +5,32 @@ import TableRow from './TableRow';
 class Table extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      users: null,
-      selectedUsers: null
-    };
-    this.getRecent = this.getRecent.bind(this);
-    this.getAllTimeHigh = this.getAllTimeHigh.bind(this);
+    // this.state = {
+    //   users: null,
+    //   selectedUsers: null
+    // };
+    // this.getRecent = this.getRecent.bind(this);
+    // this.getAllTimeHigh = this.getAllTimeHigh.bind(this);
   }
   componentDidMount() {
-    this.getRecent();
+    this.props.userFetchData(`recent`);
   }
-  getRecent() {
-    api.getLast30Days().then(users => {
-      this.setState({
-        users,
-        selectedUsers: `recent`
-      });
-    });
-  }
-  getAllTimeHigh() {
-    api.getAllTime().then(users => {
-      this.setState({
-        users,
-        selectedUsers: `alltime`
-      });
-    });
-  }
+  // getRecent() {
+  //   api.getLast30Days().then(users => {
+  //     this.setState({
+  //       users,
+  //       selectedUsers: `recent`
+  //     });
+  //   });
+  // }
+  // getAllTimeHigh() {
+  //   api.getAllTime().then(users => {
+  //     this.setState({
+  //       users,
+  //       selectedUsers: `alltime`
+  //     });
+  //   });
+  // }
   render() {
     return (
       <div className="wrap-table">
@@ -42,16 +42,16 @@ class Table extends Component {
               <th>Camper Name</th>
               <th>
                 <button
-                  className={`recent ${this.state.selectedUsers === `recent` ? `active` : ``}`}
-                  onClick={this.getRecent}
+                  className={`recent ${this.props.selectedUsers === `recent` ? `active` : ``}`}
+                  onClick={this.props.userFetchData(`recent`)}
                 >
                   Last 30 days
                 </button>
               </th>
               <th>
                 <button
-                  className={`alltime ${this.state.selectedUsers === `alltime` ? `active` : ``}`}
-                  onClick={this.getAllTimeHigh}
+                  className={`alltime ${this.props.selectedUsers === `alltime` ? `active` : ``}`}
+                  onClick={this.props.userFetchData(`alltime`)}
                 >
                   All time
                 </button>
@@ -59,9 +59,9 @@ class Table extends Component {
             </tr>
           </thead>
 
-          {!this.state.users
+          {!this.props.users
             ? <tbody><tr><td>Loading...</td></tr></tbody>
-            : <TableRow users={this.state.users} />}
+            : <TableRow users={this.props.users} />}
         </table>
       </div>
     );
