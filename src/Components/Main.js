@@ -1,13 +1,15 @@
 import React from 'react';
 import Header from './Header';
-import Content from './Content';
+import Table from './Table';
+// import Content from './Content';
 import Footer from './Footer';
 
-const Main = () => {
+const Main = props => {
+  console.log(`In Main`, props);
   return (
     <div className="app">
       <Header />
-      <Content users={this.props.users} />
+      <Table {...props} />
       <Footer />
     </div>
   );

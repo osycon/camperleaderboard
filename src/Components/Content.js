@@ -1,10 +1,11 @@
 import React from 'react';
 import Table from './Table';
 
-const Content = () => {
+const Content = props => {
+  console.log(`In Content`, props);
   return (
     <div>
-      <Table users={this.props.users} />
+      <Table {...this.props} />
     </div>
   );
 };

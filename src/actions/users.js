@@ -1,4 +1,5 @@
-import api from '../utils/api';
+// import axios from 'axios';
+import fetchData from '../utils/api';
 
 export function usersRecent(users) {
   return {
@@ -21,14 +22,16 @@ export function selectedUsers(userGroup) {
   };
 }
 
-export function usersFetchData(userGroup) {
+export function usersFetchData(listGroup) {
   return dispatch => {
-    if (userGroup === `recent`) {
-      dispatch(selectedUsers(`recent`));
-      api.getLast30Days().then(users => dispatch(usersRecent(users)));
-    } else {
-      dispatch(selectedUsers(`alltime`));
-      api.getAllTime().then(users => dispatch(usersAllTime(users)));
-    }
+    // if (userGroup === `recent`) {
+    //   dispatch(selectedUsers(`recent`));
+    //   api.getLast30Days().then(users => dispatch(usersRecent(users)));
+    // } else {
+    //   dispatch(selectedUsers(`alltime`));
+    //   api.getAllTime().then(users => dispatch(usersAllTime(users)));
+    // }
+    dispatch(selectedUsers(listGroup));
+    fetchData(listGroup).then(users => dispatch(usersRecent(users)));
   };
 }

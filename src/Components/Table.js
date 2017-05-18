@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
-import api from '../utils/api';
+import PropTypes from 'prop-types';
+// import api from '../utils/api';
 import TableRow from './TableRow';
 
 class Table extends Component {
-  constructor(props) {
-    super(props);
-    // this.state = {
-    //   users: null,
-    //   selectedUsers: null
-    // };
-    // this.getRecent = this.getRecent.bind(this);
-    // this.getAllTimeHigh = this.getAllTimeHigh.bind(this);
-  }
+  // constructor(props) {
+  //   super(props);
+  //   // this.state = {
+  //   //   users: null,
+  //   //   selectedUsers: null
+  //   // };
+  //   // this.getRecent = this.getRecent.bind(this);
+  //   // this.getAllTimeHigh = this.getAllTimeHigh.bind(this);
+  // }
   componentDidMount() {
-    this.props.userFetchData(`recent`);
+    this.props.fetchData(`recent`);
   }
   // getRecent() {
   //   api.getLast30Days().then(users => {
@@ -43,7 +44,7 @@ class Table extends Component {
               <th>
                 <button
                   className={`recent ${this.props.selectedUsers === `recent` ? `active` : ``}`}
-                  onClick={this.props.userFetchData(`recent`)}
+                  onClick={this.props.fetchData(`recent`)}
                 >
                   Last 30 days
                 </button>
@@ -51,7 +52,7 @@ class Table extends Component {
               <th>
                 <button
                   className={`alltime ${this.props.selectedUsers === `alltime` ? `active` : ``}`}
-                  onClick={this.props.userFetchData(`alltime`)}
+                  onClick={this.props.fetchData(`alltime`)}
                 >
                   All time
                 </button>
@@ -67,5 +68,15 @@ class Table extends Component {
     );
   }
 }
+
+Table.propTypes = {
+  fetchData: PropTypes.func.isRequired,
+  users: PropTypes.arrayOf(PropTypes.object),
+  selectedUsers: PropTypes.string
+};
+Table.defaultProps = {
+  users: null,
+  selectedUsers: null
+};
 
 export default Table;
