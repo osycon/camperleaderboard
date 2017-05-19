@@ -1,8 +1,18 @@
 import { combineReducers } from 'redux';
-import { usersRecent, usersAllTime, users } from './users';
+import {
+  usersRecent,
+  usersAllTime,
+  // users,
+  items,
+  itemsHasErrored,
+  itemsIsLoading
+} from './users';
 
 export default combineReducers({
-  users,
+  // users,
   usersAllTime,
-  usersRecent
+  usersRecent,
+  items,
+  itemsHasErrored,
+  itemsIsLoading
 });

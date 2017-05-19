@@ -14,7 +14,11 @@ class Table extends Component {
   //   // this.getAllTimeHigh = this.getAllTimeHigh.bind(this);
   // }
   componentDidMount() {
-    this.props.fetchData(`recent`);
+    this.props.fetchData(
+      `https://fcctop100.herokuapp.com/api/fccusers/top/recent`,
+      `recent`
+    );
+    console.log(`in table`, this.props);
   }
   // getRecent() {
   //   api.getLast30Days().then(users => {
@@ -44,7 +48,10 @@ class Table extends Component {
               <th>
                 <button
                   className={`recent ${this.props.selectedUsers === `recent` ? `active` : ``}`}
-                  onClick={this.props.fetchData(`recent`)}
+                  onClick={this.props.fetchData(
+                    `https://fcctop100.herokuapp.com/api/fccusers/top/recent`,
+                    `recent`
+                  )}
                 >
                   Last 30 days
                 </button>
@@ -52,17 +59,20 @@ class Table extends Component {
               <th>
                 <button
                   className={`alltime ${this.props.selectedUsers === `alltime` ? `active` : ``}`}
-                  onClick={this.props.fetchData(`alltime`)}
+                  onClick={this.props.fetchData(
+                    `https://fcctop100.herokuapp.com/api/fccusers/top/alltime`,
+                    `alltime`
+                  )}
                 >
                   All time
                 </button>
               </th>
             </tr>
           </thead>
-
-          {!this.props.users
+          {/* {this.props}
+          {!this.props.items
             ? <tbody><tr><td>Loading...</td></tr></tbody>
-            : <TableRow users={this.props.users} />}
+            : <TableRow {...this.props} />}*/}
         </table>
       </div>
     );
@@ -71,11 +81,11 @@ class Table extends Component {
 
 Table.propTypes = {
   fetchData: PropTypes.func.isRequired,
-  users: PropTypes.arrayOf(PropTypes.object),
+  // items: PropTypes.arrayOf(PropTypes.object),
   selectedUsers: PropTypes.string
 };
 Table.defaultProps = {
-  users: null,
+  items: null,
   selectedUsers: null
 };
 

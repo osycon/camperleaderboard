@@ -22,17 +22,18 @@ import axios from 'axios';
 //   }
 // };
 
-export default function fetchData(listGroup) {
-  let url = ``;
-  if (listGroup === `recent`) {
-    url = window.encodeURI(
-      `https://fcctop100.herokuapp.com/api/fccusers/top/recent`
-    );
-  } else {
-    url = window.encodeURI(
-      `https://fcctop100.herokuapp.com/api/fccusers/top/alltime`
-    );
-  }
+export default function fetchData(url) {
+  // let url = ``;
+  // if (listGroup === `recent`) {
+  //   url = window.encodeURI(
+  //     `https://fcctop100.herokuapp.com/api/fccusers/top/recent`
+  //   );
+  // } else {
+  //   url = window.encodeURI(
+  //     `https://fcctop100.herokuapp.com/api/fccusers/top/alltime`
+  //   );
+  // }
+  // const URI = window.encodeURI(url);
   return axios
     .get(url)
     .then(response => response.data)
