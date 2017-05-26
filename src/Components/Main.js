@@ -5,7 +5,6 @@ import Table from './Table';
 import Footer from './Footer';
 
 const Main = props => {
-  console.log(`In Main`, props);
   return (
     <div className="app">
       <Header />

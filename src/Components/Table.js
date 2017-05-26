@@ -1,18 +1,28 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { itemsFetchData } from '../actions/users';
 // import api from '../utils/api';
 import TableRow from './TableRow';
 
+const mapStateToProps = state => {
+  return {
+    // users: state.users,
+    selectedUsers: state.selectedUsers,
+    items: state.items,
+    itemsHasErrored: state.itemsHasErrored,
+    itemsIsLoading: state.itemsIsLoading
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchData: (url, userGroup) => dispatch(itemsFetchData(url, userGroup))
+  };
+};
+// warning.js?8a56:36 Warning: setState(...): Cannot update during an existing state transition (such as within `render` or another component's constructor). Render methods should be a pure function of props and state; constructor side-effects are an anti-pattern, but can be moved to `componentWillMount`.
+
 class Table extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   // this.state = {
-  //   //   users: null,
-  //   //   selectedUsers: null
-  //   // };
-  //   // this.getRecent = this.getRecent.bind(this);
-  //   // this.getAllTimeHigh = this.getAllTimeHigh.bind(this);
-  // }
   componentDidMount() {
     this.props.fetchData(
       `https://fcctop100.herokuapp.com/api/fccusers/top/recent`,
@@ -20,23 +30,8 @@ class Table extends Component {
     );
     console.log(`in table`, this.props);
   }
-  // getRecent() {
-  //   api.getLast30Days().then(users => {
-  //     this.setState({
-  //       users,
-  //       selectedUsers: `recent`
-  //     });
-  //   });
-  // }
-  // getAllTimeHigh() {
-  //   api.getAllTime().then(users => {
-  //     this.setState({
-  //       users,
-  //       selectedUsers: `alltime`
-  //     });
-  //   });
-  // }
   render() {
+    // console.log(`in table`, this.props);
     return (
       <div className="wrap-table">
         <table>
@@ -69,10 +64,9 @@ class Table extends Component {
               </th>
             </tr>
           </thead>
-          {/* {this.props}
           {!this.props.items
             ? <tbody><tr><td>Loading...</td></tr></tbody>
-            : <TableRow {...this.props} />}*/}
+            : <TableRow {...this.props} />}
         </table>
       </div>
     );
@@ -81,7 +75,7 @@ class Table extends Component {
 
 Table.propTypes = {
   fetchData: PropTypes.func.isRequired,
-  // items: PropTypes.arrayOf(PropTypes.object),
+  items: PropTypes.arrayOf(PropTypes.object),
   selectedUsers: PropTypes.string
 };
 Table.defaultProps = {
@@ -89,4 +83,4 @@ Table.defaultProps = {
   selectedUsers: null
 };
 
-export default Table;
+export default connect(mapStateToProps, mapDispatchToProps)(Table);
