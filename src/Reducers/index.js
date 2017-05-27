@@ -2,14 +2,14 @@ import { combineReducers } from 'redux';
 import {
   usersRecent,
   usersAllTime,
-  // users,
+  userSelectedTime,
   items,
   itemsHasErrored,
   itemsIsLoading
 } from './users';
 
 export default combineReducers({
-  // users,
+  userSelectedTime,
   usersAllTime,
   usersRecent,
   items,

@@ -28,10 +28,10 @@ class Table extends Component {
       `https://fcctop100.herokuapp.com/api/fccusers/top/recent`,
       `recent`
     );
-    console.log(`in table`, this.props);
+    // console.log(`in table`, this.props);
   }
   render() {
-    // console.log(`in table`, this.props);
+    console.log(`in table`, this.props);
     return (
       <div className="wrap-table">
         <table>
@@ -43,24 +43,20 @@ class Table extends Component {
               <th>
                 <button
                   className={`recent ${this.props.selectedUsers === `recent` ? `active` : ``}`}
-                  onClick={this.props.fetchData(
-                    `https://fcctop100.herokuapp.com/api/fccusers/top/recent`,
-                    `recent`
-                  )}
+                  onClick={console.log(`Recent`)}
                 >
                   Last 30 days
                 </button>
+                {/* Last 30 days*/}
               </th>
               <th>
                 <button
                   className={`alltime ${this.props.selectedUsers === `alltime` ? `active` : ``}`}
-                  onClick={this.props.fetchData(
-                    `https://fcctop100.herokuapp.com/api/fccusers/top/alltime`,
-                    `alltime`
-                  )}
+                  onClick={console.log(`Alltime`)}
                 >
                   All time
                 </button>
+                {/* All time*/}
               </th>
             </tr>
           </thead>

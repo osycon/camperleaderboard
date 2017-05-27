@@ -27,7 +27,7 @@ export function itemsHasErrored(bool) {
     hasErrored: bool
   };
 }
-export function selectedUsers(userGroup) {
+export function userSelectedTime(userGroup) {
   return {
     type: `SELECTED_USERS`,
     selectedUsers: userGroup
@@ -43,18 +43,11 @@ export function itemsFetchDataSuccess(items) {
 
 export function itemsFetchData(url, listGroup) {
   return dispatch => {
-    // if (userGroup === `recent`) {
-    //   dispatch(selectedUsers(`recent`));
-    //   api.getLast30Days().then(users => dispatch(usersRecent(users)));
-    // } else {
-    //   dispatch(selectedUsers(`alltime`));
-    //   api.getAllTime().then(users => dispatch(usersAllTime(users)));
-    // }
-    dispatch(selectedUsers(listGroup));
     dispatch(itemsIsLoading(true));
 
     fetchData(url).then(items => {
       dispatch(itemsIsLoading(false));
+      dispatch(userSelectedTime(listGroup));
       dispatch(itemsFetchDataSuccess(items));
     });
   };

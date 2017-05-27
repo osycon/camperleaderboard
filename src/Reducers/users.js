@@ -16,10 +16,10 @@ export function usersAllTime(state = [], action) {
   }
 }
 
-export function users(state = `recent`, action) {
+export function userSelectedTime(state = `recent`, action) {
   switch (action.type) {
     case `SELECTED_USERS`:
-      return action.selectedUsers;
+      return action.userSelectedTime;
     default:
       return state;
   }
