@@ -2,25 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { itemsFetchData } from '../actions/users';
-// import api from '../utils/api';
-import TableRow from './TableRow';
-
-const mapStateToProps = state => {
-  return {
-    // users: state.users,
-    selectedUsers: state.selectedUsers,
-    items: state.items,
-    itemsHasErrored: state.itemsHasErrored,
-    itemsIsLoading: state.itemsIsLoading
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    fetchData: (url, userGroup) => dispatch(itemsFetchData(url, userGroup))
-  };
-};
-// warning.js?8a56:36 Warning: setState(...): Cannot update during an existing state transition (such as within `render` or another component's constructor). Render methods should be a pure function of props and state; constructor side-effects are an anti-pattern, but can be moved to `componentWillMount`.
+import TableRow from '../Components/TableRow';
 
 class Table extends Component {
   componentDidMount() {
@@ -28,7 +10,6 @@ class Table extends Component {
       `https://fcctop100.herokuapp.com/api/fccusers/top/recent`,
       `recent`
     );
-    // console.log(`in table`, this.props);
   }
   render() {
     console.log(`in table`, this.props);
@@ -69,11 +50,27 @@ class Table extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    selectedUsers: state.selectedUsers,
+    items: state.items,
+    itemsHasErrored: state.itemsHasErrored,
+    itemsIsLoading: state.itemsIsLoading
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchData: (url, userGroup) => dispatch(itemsFetchData(url, userGroup))
+  };
+};
+
 Table.propTypes = {
   fetchData: PropTypes.func.isRequired,
   items: PropTypes.arrayOf(PropTypes.object),
   selectedUsers: PropTypes.string
 };
+
 Table.defaultProps = {
   items: null,
   selectedUsers: null

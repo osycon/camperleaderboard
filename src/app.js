@@ -9,13 +9,13 @@ import configureStore from './store/configStore';
 import css from './style.scss';
 
 // import components
-import Main from './Components/Main';
+import App from './Components/App';
 
 const store = configureStore();
 
 render(
   <Provider store={store}>
-    <Main />
+    <App />
   </Provider>,
   document.getElementById(`root`)
 );

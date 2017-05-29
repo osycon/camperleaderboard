@@ -1,22 +1,16 @@
-// import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import { itemsFetchData } from '../actions/users';
-import Main from './Main';
+import React from 'react';
+import Header from './Header';
+import Table from '../Containers/Table';
+import Footer from './Footer';
 
-// const mapStateToProps = state => {
-//   return {
-//     // users: state.users,
-//     selectedUsers: state.selectedUsers,
-//     items: state.items,
-//     itemsHasErrored: state.itemsHasErrored,
-//     itemsIsLoading: state.itemsIsLoading
-//   };
-// };
-
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     fetchData: (url, userGroup) => dispatch(itemsFetchData(url, userGroup))
-//   };
-// };
+const App = props => {
+  return (
+    <div className="app">
+      <Header />
+      <Table {...props} />
+      <Footer />
+    </div>
+  );
+};
 
 export default App;
