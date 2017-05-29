@@ -16,7 +16,7 @@ export function itemsHasErrored(bool) {
 export function userSelectedTime(userGroup) {
   return {
     type: `SELECTED_USERS`,
-    payload: userGroup
+    userGroup
   };
 }
 

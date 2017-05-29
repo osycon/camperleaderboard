@@ -1,7 +1,7 @@
-export function userSelectedTime(state = { selectedUser: `recent` }, action) {
+export function userSelectedTime(state = `recent`, action) {
   switch (action.type) {
     case `SELECTED_USERS`:
-      return action.userSelectedTime;
+      return action.userGroup;
     default:
       return state;
   }
