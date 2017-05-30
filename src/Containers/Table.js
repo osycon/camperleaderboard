@@ -52,7 +52,7 @@ class Table extends Component {
 
 const mapStateToProps = state => {
   return {
-    selectedUsers: state.selectedUsers,
+    selectedUsers: state.userSelectedTime,
     items: state.items,
     itemsHasErrored: state.itemsHasErrored,
     itemsIsLoading: state.itemsIsLoading
