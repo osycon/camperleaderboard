@@ -4,12 +4,11 @@ import PropTypes from 'prop-types';
 import { itemsFetchData } from '../actions/users';
 import TableRow from '../Components/TableRow';
 
+const ROOT_URL = `https://fcctop100.herokuapp.com/api/fccusers/top/`;
+
 class Table extends Component {
   componentDidMount() {
-    this.props.fetchData(
-      `https://fcctop100.herokuapp.com/api/fccusers/top/recent`,
-      `recent`
-    );
+    this.props.fetchData(`${ROOT_URL}recent`, `recent`);
   }
   render() {
     console.log(`in table`, this.props);
@@ -28,7 +27,6 @@ class Table extends Component {
                 >
                   Last 30 days
                 </button>
-                {/* Last 30 days*/}
               </th>
               <th>
                 <button
@@ -37,7 +35,6 @@ class Table extends Component {
                 >
                   All time
                 </button>
-                {/* All time*/}
               </th>
             </tr>
           </thead>

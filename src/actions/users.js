@@ -1,4 +1,3 @@
-// import axios from `axios`;
 import fetchData from '../utils/api';
 
 export function itemsIsLoading(bool) {
@@ -30,7 +29,6 @@ export function itemsFetchDataSuccess(items) {
 export function itemsFetchData(url, listGroup) {
   return dispatch => {
     dispatch(itemsIsLoading(true));
-    console.log(`in itemsFetchData`, listGroup);
     fetchData(url).then(items => {
       dispatch(itemsIsLoading(false));
       dispatch(userSelectedTime(listGroup));
