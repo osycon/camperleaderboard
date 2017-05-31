@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const UserRow = props => {
-  console.log(`in tablerow`, props);
   return (
     <tbody>
       {props.items.map((user, index) => {
