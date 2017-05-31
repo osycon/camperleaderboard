@@ -7,10 +7,6 @@ import TableRow from '../Components/TableRow';
 const ROOT_URL = `https://fcctop100.herokuapp.com/api/fccusers/top/`;
 
 class Table extends Component {
-  constructor(props) {
-    super(props);
-    this.renderData = this.renderData.bind(this);
-  }
   componentDidMount() {
     this.renderData(`recent`);
   }
@@ -18,7 +14,6 @@ class Table extends Component {
     this.props.fetchData(`${ROOT_URL}${userState}`, userState);
   }
   render() {
-    console.log(`in table`, this.props);
     return (
       <div className="wrap-table">
         <table>
@@ -30,7 +25,7 @@ class Table extends Component {
               <th>
                 <button
                   className={`recent ${this.props.selectedUsers === `recent` ? `active` : ``}`}
-                  onClick={this.renderData(`recent`)}
+                  onClick={() => this.renderData(`recent`)}
                 >
                   Last 30 days
                 </button>
@@ -38,7 +33,7 @@ class Table extends Component {
               <th>
                 <button
                   className={`alltime ${this.props.selectedUsers === `alltime` ? `active` : ``}`}
-                  onClick={this.renderData(`alltime`)}
+                  onClick={() => this.renderData(`alltime`)}
                 >
                   All time
                 </button>
