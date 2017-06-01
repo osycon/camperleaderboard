@@ -1,13 +1,13 @@
 import React from 'react';
 import Header from './Header';
-import Content from './Content';
+import Table from '../Containers/Table';
 import Footer from './Footer';
 
-const App = () => {
+const App = props => {
   return (
     <div className="app">
       <Header />
-      <Content />
+      <Table {...props} />
       <Footer />
     </div>
   );
